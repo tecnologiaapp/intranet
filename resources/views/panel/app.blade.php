@@ -61,12 +61,12 @@
                                  <span class="nk-menu-text">Presupuestos financieros</span>
                               </a>
                            </li>
-                           <li class="nk-menu-item has-sub">
+                           <!-- <li class="nk-menu-item has-sub">
                               <a href="{{ route('user.certificados.index') }}" class="nk-menu-link">
                                  <span class="nk-menu-icon"><i class="lni lni-library"></i></span>
                                  <span class="nk-menu-text">Certificados tributarios</span>
                               </a>
-                           </li>
+                           </li> -->
                            <!-- <li class="nk-menu-item has-sub">
                               <a href="{{ route('user.archivo.thesis') }}" class="nk-menu-link">
                                  <span class="nk-menu-icon"><i class="lni lni-dashboard"></i></span>
