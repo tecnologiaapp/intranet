@@ -1,0 +1,102 @@
+.main-banner:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 100%;
+	background-color: #7d2f64;
+	z-index: -1;
+}
+
+.main-banner:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 50%;
+	height: 100%;
+	background-color: #212529;
+	z-index: -1;
+}
+
+.testimonial-sec {
+	background-color: #ffc100;
+}
+
+.contact-section {
+	padding: 130px 0;
+	background-color: #212529;
+}
+
+.project-hd {
+	background-color: #212529;
+	padding: 70px 0;
+}
+
+.testi-comment {
+	background-color: #212529;
+	padding: 134px 0 132px;
+}
+
+.project-text > span {
+	display: block;
+	color: #7d2f64;
+	font-size: 30px;
+	line-height: 36px;
+	margin-bottom: 47px;
+}
+
+.btn-default:hover {
+	background-color: #7d2f64;
+	color: #fff;
+}
+
+.sec-v2-title > h2:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 70px;
+	height: 2px;
+	background-color: #7d2f64;
+}
+
+.banner-text .btn-default:hover {
+	background-color: #212529;
+	color: #fff;
+}
+
+.work-together-sec {
+	background-color: #212529;
+	padding: 76px 0 167px;
+}
+
+.wrk-tgt p {
+	color: #ffffff;
+	font-size: 17.5px;
+	line-height: 30px;
+	max-width: 800px;
+	margin: 0 auto;
+	margin-bottom: 47px;
+}
+
+.responsive-mobile-menu {
+	position: fixed;
+	top: 0;
+	left: -250px;
+	width: 250px;
+	z-index: 9999;
+	height: 100%;
+	overflow: auto;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.4s ease-in-out;
+	background-color: #212529;
+}
+
+footer {
+	background-color: #7d2f64;
+	padding: 97px 0;
+	background-image: url();
+}

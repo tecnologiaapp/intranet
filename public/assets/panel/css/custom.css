@@ -1,0 +1,29 @@
+.alert-success {
+   color: #ffffff;
+   background: #3fbd9a;
+   border-color: #e4fbf5;
+}
+
+#map {
+   height: 50vh;
+}
+
+.leaflet-popup-content-wrapper {
+   width: 100%;
+}
+
+span.user-status-Inactive {
+   color: red;
+}
+
+.accordion-s3 .accordion-icon::before {
+   content: "–";
+}
+
+.accordion-s3 .accordion-head.collapsed .accordion-icon:before {
+   content: "+";
+}
+
+.card-inner {
+   min-height: 250px !important;
+}
