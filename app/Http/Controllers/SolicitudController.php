@@ -49,4 +49,43 @@ class SolicitudController extends Controller
         $solicitud->save();
         return redirect()->route('user.soporte.solicitud.index');
     }
+
+    public function edit(string $id)
+    {
+        $solicitud = solicitud::find($id);
+        $data = [
+            'solicitud' =>$solicitud,
+        ];
+        return view('user.soporte.solicitud.edit',$data);
+    }
+
+    public function update(Request $request, string $id)
+    {
+        $solicitud = solicitud::find($id);
+        $solicitud->nombres_solicitante = $request->nombre_solicitante;
+        $solicitud->apellidos_solicitante = $request->apellido_solicitante;
+        $solicitud->correo_solicitante = $request->correo_solicitante;
+        $solicitud->subdirección_solicitante = $request->subdireccion_solicitante;  
+        $solicitud->cedula_usuario = $request->cedula_usuario;
+        $solicitud->nombres_usuario = $request->nombre_usuario;
+        $solicitud->apellidos_usuario = $request->apellido_usuario;
+        $solicitud->telefono_usuario = $request->telefono_usuario;
+        $solicitud->correo_usuario = $request->correo_usuario;
+        $solicitud->subdirección_usuario = $request->subdireccion_usuario;
+        $solicitud->numero_contrato = $request->numero_contrato;
+        $solicitud->fecha_inicio = $request->fecha_inicio;
+        $solicitud->fecha_fin = $request->fecha_fin;
+        $solicitud->unidad = $request->unidad;
+        $solicitud->permiso_unidad = $request->permiso_unidad;
+        $solicitud->objeto_contrato = $request->objeto_contrato;
+        $solicitud->save();
+        return redirect()->route('user.soporte.solicitud.index');
+    }
+
+    public function destroy(string $id)
+    {
+        $solicitud = solicitud::find($id);
+        $solicitud->delete();
+        return redirect()->route('user.soporte.solicitud.index');
+    }
 }
