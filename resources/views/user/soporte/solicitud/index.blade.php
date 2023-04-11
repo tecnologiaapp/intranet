@@ -32,192 +32,63 @@
          
     </div>
 </div>
-<div class="card-body px-0 pt-0 pb-2">
-              @if(session('notificacion'))
-                     <div class="alert alert-success" role="alert">
-                        {{ session('notificacion') }}
-                     </div>
-              @endif
-              <div class="table-responsive p-0" style="width:100%; height:100%; overflow:auto; vertical-align: middle;">
-                <table class="table align-items-center mb-0 table-bordered">
-                <thead>
-                    <th colspan="5" class="text-center font-weight-bold mb-0">Solicitante</th>
-                    <th colspan="13" class="text-center font-weight-bold mb-0">Usuario</th>
-                </thead>
-                  <thead>
-                    <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">id</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nombres</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Apellidos</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Correo</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Subdirección</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Cedula</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nombres</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Apellidos</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Telefono</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Correo</th>  
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Subdirección</th>  
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Numero de contrato</th>  
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Fecha de inicio</th> 
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Fecha de finalización</th> 
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unidad de almacenamiento</th> 
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Permiso de unidad</th> 
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Objeto del contrato</th> 
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Estado</th>                   
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Opciones</th>
-                      <th class="text-secondary opacity-7"></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    @foreach($solicitud as $sol)
-                    <tr>
-                    <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <p class="text-xs font-weight-bold mb-0">{{$sol->id}}</p>                          
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <p class="text-xs font-weight-bold mb-0">{{$sol->nombres_solicitante}}</p>                          
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <p class="text-xs font-weight-bold mb-0">{{$sol->apellidos_solicitante}}</p>                          
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <p class="text-xs font-weight-bold mb-0">{{$sol->correo_solicitante}}</p>                          
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <p class="text-xs font-weight-bold mb-0">{{$sol->subdirección_solicitante}}</p>                          
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <p class="text-xs font-weight-bold mb-0">{{$sol->cedula_usuario}}</p>                          
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex px-2 py-1">                        
-                          <div class="d-flex flex-column justify-content-center">
-                            <p class="text-xs font-weight-bold mb-0">{{$sol->nombres_usuario}}</p>
-                          </div>
-                        </div>                                            
-                      </td>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <p class="text-xs font-weight-bold mb-0">{{$sol->apellidos_usuario}}</p>                          
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <p class="text-xs font-weight-bold mb-0">{{$sol->telefono_usuario}}</p>                          
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <p class="text-xs font-weight-bold mb-0">{{$sol->correo_usuario}}</p>                          
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <p class="text-xs font-weight-bold mb-0">{{$sol->subdirección_usuario}}</p>                          
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <p class="text-xs font-weight-bold mb-0">{{$sol->numero_contrato}}</p>                          
-                          </div>
-                        </div>
-                      </td>  
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <p class="text-xs font-weight-bold mb-0">{{$sol->fecha_inicio}}</p>                          
-                          </div>
-                        </div>
-                      </td>    
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <p class="text-xs font-weight-bold mb-0">{{$sol->fecha_fin}}</p>                          
-                          </div>
-                        </div>
-                      </td>  
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <p class="text-xs font-weight-bold mb-0">{{$sol->unidad}}</p>                          
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <p class="text-xs font-weight-bold mb-0">{{$sol->permiso_unidad}}</p>                          
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <p class="text-xs font-weight-bold mb-0">{{$sol->objeto_contrato}}</p>                          
-                          </div>
-                        </div>
-                      </td> 
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <p class="text-xs font-weight-bold mb-0">{{$sol->estado}}</p>                          
-                          </div>
-                        </div>
-                      </td>                 
-                      <td class="btn-group">
-                          <a href="{{ route('user.soporte.solicitud.edit', $sol->id) }}" class="btn btn-primary">Editar</a>
-                          <form action="{{ route('user.soporte.solicitud.destroy', $sol->id) }}" method="POST">
-                              @method('DELETE')
-                              @csrf
-                              <input type="submit" value="Eliminar" class="btn btn-warning">
-                          </form>
-                      </td>
-            
-                    </tr>
-                    
-                  @endforeach
-                  </tbody>
-                  <tfoot>
-                      <tr>
-                          <td colspan="18"> {{$solicitud->appends(['busqueda'=>$busqueda])}} </td>
-                      </tr>
-                  </tfoot>
-                </table>
-              </div>
-            </div>
+<div class="table-responsive" style="width:100%; height:100%; overflow:auto; vertical-align: middle;">
+<table class="table table-hover table-bordered" style="vertical-align: middle;">
+    <thead>
+        <th colspan="5" class="text-center">Solicitante</th>
+        <th colspan="13" class="text-center">Usuario</th>
+    </thead>
+<thead style="vertical-align: middle; width:50px">
+    <th>id</th>
+    <th>Nombres</th>
+    <th>Apellidos</th>
+    <th>Correo</th>
+    <th>Subdirección</th>
+    <th>Cedula</th>
+    <th>Nombres</th>
+    <th>Apellidos</th>
+    <th>Telefono</th>
+    <th>Correo</th>
+    <th>Subdirección</th>
+    <th>Numero de contrato</th>
+    <th style="">Fecha de inicio</th>
+    <th>Fecha de finalización</th>
+    <th>Unidad de almacenamiento</th>
+    <th>Permiso de unidad</th>
+    <th>Objeto del contrato</th>
+    <th>Estado</th>
+</thead>
+<tbody>
+    @foreach($solicitud as $sol)
+    <tr>
+        <td>{{$sol->id}}</td>
+        <td>{{$sol->nombres_solicitante}}</td>
+        <td>{{$sol->apellidos_solicitante}}</td>
+        <td>{{$sol->correo_solicitante}}</td>
+        <td>{{$sol->subdirección_solicitante}}</td>
+        <td>{{$sol->cedula_usuario}}</td>
+        <td>{{$sol->nombres_usuario}}</td>
+        <td>{{$sol->apellidos_usuario}}</td>
+        <td>{{$sol->telefono_usuario}}</td>
+        <td>{{$sol->correo_usuario}}</td>
+        <td>{{$sol->subdirección_usuario}}</td>
+        <td>{{$sol->numero_contrato}}</td>
+        <td>{{$sol->fecha_inicio}}</td>
+        <td>{{$sol->fecha_fin}}</td>
+        <td>{{$sol->unidad}}</td>
+        <td>{{$sol->permiso_unidad}}</td>
+        <td>{{$sol->objeto_contrato}}</td>
+        <td>{{$sol->estado}}</td>
+    </tr>
+    @endforeach
+</tbody>
+<tfoot>
+    <tr>
+        <td colspan="18"> {{$solicitud->appends(['busqueda'=>$busqueda])}} </td>
+    </tr>
+</tfoot>
+</table>
+</div>
 
     </div>
 </section>

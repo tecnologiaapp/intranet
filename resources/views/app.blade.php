@@ -72,8 +72,8 @@
                               <li><a href="{{ route('user.tools.index') }}" title="">Herramientas</a></li>
                               <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSe_7N76d-cmnhAP6jh_qXL9S6xr77KyUNpEKz2nnjGuDIfhLw/viewform" target="_blank">Certificados</a></li>
                               <!-- <li><a href="{{ route('user.words.index') }}" title="">Del director</a></li> -->
-                              <li><a href="{{ route('user.soporte.index') }}" title="">Appyuda</a></li>
-                              <li><a href="{{ route('user.certificados.user') }}" title="">Certificados tributarios</a></li>
+                              <!-- <li><a href="{{ route('user.soporte.index') }}" title="">Appyuda</a></li>
+                              <li><a href="{{ route('user.certificados.user') }}" title="">Certificados tributarios</a></li> -->
                               <li><a href="{{ route('user.mercurio.index') }}" title="">Mercurio</a></li>
                               <li><a href="{{ route('user.entrepreneurship.index') }}" title="">Emprendedores</a></li>
                            </ul>

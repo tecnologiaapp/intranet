@@ -45,11 +45,11 @@
                       <label class="form-label">Subdirección:</label>
                         <select class="form-control" name="subdireccion_solicitante"required>
                         <option selected disabled value="">Seleccionar</option>
-                        <option value="Direccion_general">Dirección General</option>
-                        <option value="Direccion_tecnica">Dirección Técnica</option>
-                        <option value="Subdireccion_app">Subdirección de alianzas publico privadas</option>
-                        <option value="Subdireccion_paisaje">Subdirección de paisaje y patrimonio</option>
-                        <option value="Subdireccion_inmo">Subdirección de inmobiliaria</option>
+                        <option value="general_solicitante">Dirección General</option>
+                        <option value="tecnica_solicitante">Dirección Técnica</option>
+                        <option value="app_solicitante">Subdirección de alianzas publico privadas</option>
+                        <option value="paisaje_solicitante">Subdirección de paisaje y patrimonio</option>
+                        <option value="inmo_solicitante">Subdirección de inmobiliaria</option>
                         </select>
                       </div>
                    
@@ -81,11 +81,11 @@
                       <label class="form-label">Subdirección:</label>
                         <select class="form-control" name="subdireccion_usuario" required>
                         <option selected disabled value="">Seleccionar</option>
-                        <option value="Direccion_General">Dirección General</option>
-                        <option value="Direccion_Tecnica">Dirección Técnica</option>
-                        <option value="Subdireccion_App">Subdirección de alianzas publico privadas</option>
-                        <option value="Subdireccion_Paisaje">Subdirección de paisaje y patrimonio</option>
-                        <option value="Subdireccion_Inmobiliaria">Subdirección de inmobiliaria</option>
+                        <option value="general_usuario">Dirección General</option>
+                        <option value="tecnica_usuario">Dirección Técnica</option>
+                        <option value="app_usuario">Subdirección de alianzas publico privadas</option>
+                        <option value="paisaje_usuario">Subdirección de paisaje y patrimonio</option>
+                        <option value="inmo_usuario">Subdirección de inmobiliaria</option>
                         </select>
                       </div>
 
@@ -109,10 +109,10 @@
                       <label class="form-label">Tipo de permiso:</label>
                         <select class="form-control" name="permiso_unidad">
                         <option selected disabled value="">Seleccionar</option>
-                        <option value="Lector">Lector</option>
-                        <option value="Comentador">Comentador</option>
-                        <option value="Colaborador">Colaborador (Añadir y editar archivos)</option>
-                        <option value="Gestor">Gestor de contenido (Añadir, editar, mover y eliminar archivos)</option>
+                        <option value="">Lector</option>
+                        <option value="">Comentador</option>
+                        <option value="">Colaborador (Añadir y editar archivos)</option>
+                        <option value="">Gestor de contenido (Añadir, editar, mover y eliminar archivos)</option>
                         </select>
                       </div>
                       <div class="col-md-6">
