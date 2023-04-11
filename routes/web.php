@@ -320,12 +320,14 @@ Route::get('APPyuda', [SoporteController::class, 'index'])->name('user.soporte.i
 Route::get('APPyuda/crear_caso', [SoporteController::class, 'caso'])->name('user.soporte.caso');
 Route::get('APPyuda/crear_solicitud', [SoporteController::class, 'solicitud'])->name('user.soporte.solicitud');
 
-  // Registro de certificados tributarios
+
   Route::get('APPyuda/solicitud/index', [SolicitudController::class, 'index'])->name('user.soporte.solicitud.index');
-//   Route::get('certificate', [CertificadosController::class, 'user'])->name('user.certificados.user');
   Route::get('APPyuda/solicitud/create', [SolicitudController::class, 'create'])->name('user.soporte.solicitud.create');
+  Route::get('APPyuda/solicitud/{id}/edit', [SolicitudController::class, 'edit'])->name('user.soporte.solicitud.edit');
+//   Route::get('certificate', [CertificadosController::class, 'user'])->name('user.certificados.user');
+
   Route::post('APPyuda/solicitud', [SolicitudController::class, 'store'])->name('user.soporte.solicitud.store');
   Route::get('APPyuda/solicitud/{id}', [SolicitudController::class, 'show'])->name('user.soporte.solicitud.show');
-  Route::get('APPyuda/solicitud/{id}/edit', [SolicitudController::class, 'edit'])->name('user.soporte.solicitud.edit');
+  
   Route::put('APPyuda/solicitud/{id}/update', [SolicitudController::class, 'update'])->name('user.soporte.solicitud.update');
   Route::delete('APPyuda/solicitud/{id}', [SolicitudController::class, 'destroy'])->name('user.soporte.solicitud.destroy');

@@ -51,11 +51,11 @@
         <td class="btn-group">
             <a class="btn btn-danger" href="Archivos/{{$certificado->pdf}}" target="_blank">Ver Documento</a>
             <a href="{{ route('user.certificados.edit', $certificado->id) }}" class="btn btn-primary">Editar</a>
-            <!-- <form action="{{ route('user.certificados.destroy', $certificado->id) }}" method="POST">
+            <form action="{{ route('user.certificados.destroy', $certificado->id) }}" method="POST">
                 @method('DELETE')
                 @csrf
                 <input type="submit" value="Eliminar" class="btn btn-warning">
-            </form> -->
+            </form>
         </td>
     </tr>
     @endforeach
