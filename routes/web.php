@@ -320,14 +320,47 @@ Route::get('APPyuda', [SoporteController::class, 'index'])->name('user.soporte.i
 Route::get('APPyuda/crear_caso', [SoporteController::class, 'caso'])->name('user.soporte.caso');
 Route::get('APPyuda/crear_solicitud', [SoporteController::class, 'solicitud'])->name('user.soporte.solicitud');
 
-
+//Solicitud
   Route::get('APPyuda/solicitud/index', [SolicitudController::class, 'index'])->name('user.soporte.solicitud.index');
+  Route::get('APPyuda/solicitud/user', [SolicitudController::class, 'user'])->name('user.soporte.solicitud.user');
   Route::get('APPyuda/solicitud/create', [SolicitudController::class, 'create'])->name('user.soporte.solicitud.create');
   Route::get('APPyuda/solicitud/{id}/edit', [SolicitudController::class, 'edit'])->name('user.soporte.solicitud.edit');
 //   Route::get('certificate', [CertificadosController::class, 'user'])->name('user.certificados.user');
-
   Route::post('APPyuda/solicitud', [SolicitudController::class, 'store'])->name('user.soporte.solicitud.store');
-  Route::get('APPyuda/solicitud/{id}', [SolicitudController::class, 'show'])->name('user.soporte.solicitud.show');
-  
+  Route::get('APPyuda/solicitud/{id}', [SolicitudController::class, 'show'])->name('user.soporte.solicitud.show');  
   Route::put('APPyuda/solicitud/{id}/update', [SolicitudController::class, 'update'])->name('user.soporte.solicitud.update');
   Route::delete('APPyuda/solicitud/{id}', [SolicitudController::class, 'destroy'])->name('user.soporte.solicitud.destroy');
+
+  //Drive
+  Route::get('APPyuda/drive/index', [App\Http\Controllers\DriveController::class, 'index'])->name('user.soporte.drive.index');
+  Route::get('APPyuda/drive/user', [App\Http\Controllers\DriveController::class, 'user'])->name('user.soporte.drive.user');
+  Route::get('APPyuda/drive/create', [App\Http\Controllers\DriveController::class, 'create'])->name('user.soporte.drive.create');
+  Route::get('APPyuda/drive/{id}/edit', [App\Http\Controllers\DriveController::class, 'edit'])->name('user.soporte.drive.edit');
+  Route::post('APPyuda/drive', [App\Http\Controllers\DriveController::class, 'store'])->name('user.soporte.drive.store');
+  Route::get('APPyuda/drive/{id}', [App\Http\Controllers\DriveController::class, 'show'])->name('user.soporte.drive.show');  
+  Route::put('APPyuda/drive/{id}/update', [App\Http\Controllers\DriveController::class, 'update'])->name('user.soporte.drive.update');
+  Route::delete('APPyuda/drive/{id}', [App\Http\Controllers\DriveController::class, 'destroy'])->name('user.soporte.drive.destroy');
+
+    //Soporte Tecnico
+    Route::get('APPyuda/tecnico/index', [App\Http\Controllers\TecnicoController::class, 'index'])->name('user.soporte.tecnico.index');
+    Route::get('APPyuda/tecnico/user', [App\Http\Controllers\TecnicoController::class, 'user'])->name('user.soporte.tecnico.user');
+    Route::get('APPyuda/tecnico/create', [App\Http\Controllers\TecnicoController::class, 'create'])->name('user.soporte.tecnico.create');
+    Route::get('APPyuda/tecnico/{id}/edit', [App\Http\Controllers\TecnicoController::class, 'edit'])->name('user.soporte.tecnico.edit');
+    Route::post('APPyuda/tecnico', [App\Http\Controllers\TecnicoController::class, 'store'])->name('user.soporte.tecnico.store');
+    Route::get('APPyuda/tecnico/{id}', [App\Http\Controllers\TecnicoController::class, 'show'])->name('user.soporte.tecnico.show');  
+    Route::put('APPyuda/tecnico/{id}/update', [App\Http\Controllers\TecnicoController::class, 'update'])->name('user.soporte.tecnico.update');
+    Route::delete('APPyuda/tecnico/{id}', [App\Http\Controllers\TecnicoController::class, 'destroy'])->name('user.soporte.tecnico.destroy');
+
+    //configuracion
+    Route::get('APPyuda/configuracion/index', [App\Http\Controllers\ConfiguracionController::class, 'index'])->name('user.soporte.configuracion.index');
+    Route::get('APPyuda/configuracion/user', [App\Http\Controllers\ConfiguracionController::class, 'user'])->name('user.soporte.configuracion.user');
+    Route::get('APPyuda/configuracion/create', [App\Http\Controllers\ConfiguracionController::class, 'create'])->name('user.soporte.configuracion.create');
+    Route::get('APPyuda/configuracion/{id}/edit', [App\Http\Controllers\ConfiguracionController::class, 'edit'])->name('user.soporte.configuracion.edit');
+    Route::post('APPyuda/configuracion', [App\Http\Controllers\ConfiguracionController::class, 'store'])->name('user.soporte.configuracion.store');
+    Route::get('APPyuda/configuracion/{id}', [App\Http\Controllers\ConfiguracionController::class, 'show'])->name('user.soporte.configuracion.show');  
+    Route::put('APPyuda/configuracion/{id}/update', [App\Http\Controllers\ConfiguracionController::class, 'update'])->name('user.soporte.configuracion.update');
+    Route::delete('APPyuda/configuracion/{id}', [App\Http\Controllers\ConfiguracionController::class, 'destroy'])->name('user.soporte.configuracion.destroy');  
+    
+    //virtual
+    Route::get('APPyuda/virtual/index', [App\Http\Controllers\VirtualController::class, 'index'])->name('user.soporte.virtual.index');
+       

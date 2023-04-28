@@ -18,7 +18,7 @@
               <div class="card">
                 <div class="card-header">
                     <div>
-                    <a href="{{ route('user.certificados.index') }}" class="btn btn-primary">Listado de documentos</a>
+                    <a href="{{ route('user.certificados.index') }}" class="btn-get-principal">Listado de documentos</a>
                     </div>
                 </div>
                 <div class="card-body">
@@ -26,27 +26,21 @@
                       @csrf
 
                       <div class="col-md-6">
-                      <label class="form-label">Nombres</label>
-                      <input type="text" class="form-control" name="nombre" required>
+                        <label  class="form-label">Cedula o Nit</label>
+                        <input type="numbers" class="form-control" name="cedula" placeholder="Ingrese Cedula o Nit" required>
                       </div>
                       <div class="col-md-6">
-                      <label class="form-label">Apellidos</label>
-                      <input type="text" class="form-control" name="apellido" required>
-                      </div>
-                      <div class="col-md-6">
-                        <label  class="form-label">Documento de identidad</label>
-                        <input type="numbers" class="form-control" name="cedula" required>
-                      </div>
-                      <div class="col-md-6">
-                            <label class="form-label">Correo electronico</label>
-                            <input type="text" class="form-control" name="correo" required>
+                            <label class="form-label">Nombre o Razón social</label>
+                            <input type="text" class="form-control" name="razon"  placeholder="Opcional">
                       </div>
                       <div class="col-md-6">
                             <label  class="form-label">Adjuntar certificado</label>
-                            <input type="file" class="form-control-file" name="pdf" required>
+                            <input type="file" class="form-control" name="pdf" required>
                       </div>
 
-                      <button type="submit" class="btn btn-primary justify-content-md-end mt-2" style="background-color:#b3348a; border-color:#b3348a;">Guardar registro</button>
+                      <div class="col-md-12 pt-2" align="center">
+                        <button type="submit" class="btn-get-principal">Guardar registro</button>
+                      </div>
                   </form>
                 </div>
               </div>

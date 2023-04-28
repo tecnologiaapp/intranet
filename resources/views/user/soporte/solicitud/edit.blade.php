@@ -18,7 +18,7 @@
               <div class="card">
                 <div class="card-header">
                     <div>
-                    <a href="{{ route('user.soporte.solicitud.index') }}" class="btn btn-primary">Listado de solicitudes</a>
+                    <a href="{{ route('user.soporte.solicitud.index') }}" class="btn-get-blue">Listado de solicitudes</a>
                     </div>
                 </div>
                 <div class="card-body">
@@ -26,7 +26,7 @@
                 @csrf
                 @method('PUT')
 
-                <div class="col-md-12 pb-3">
+                      <!-- <div class="col-md-12 pb-3">
                         <h2 align="center">Datos del solicitante</h2>
                       </div>
                       <div class="col-md-6 pb-3">
@@ -51,7 +51,7 @@
                         <option value="Subdireccion_paisaje">Subdirección de paisaje y patrimonio</option>
                         <option value="Subdireccion_inmo">Subdirección de inmobiliaria</option>
                         </select>
-                      </div>
+                      </div> -->
                    
                       <div class="col-md-12 pt-5">
                         <h2 align="center">Datos del usuario</h2>
@@ -81,11 +81,11 @@
                       <label class="form-label">Subdirección:</label>
                         <select class="form-control" name="subdireccion_usuario" required>
                         <option selected disabled value="">{{ $solicitud->subdirección_usuario}}</option>
-                        <option value="Direccion_General">Dirección General</option>
-                        <option value="Direccion_Tecnica">Dirección Técnica</option>
-                        <option value="Subdireccion_App">Subdirección de alianzas publico privadas</option>
-                        <option value="Subdireccion_Paisaje">Subdirección de paisaje y patrimonio</option>
-                        <option value="Subdireccion_Inmobiliaria">Subdirección de inmobiliaria</option>
+                        <option value="Dirección General">Dirección General</option>
+                        <option value="Dirección Técnica">Dirección Técnica</option>
+                        <option value="Subdirección App">Subdirección App</option>
+                        <option value="Subdirección paisaje y patrimonio">Subdirección paisaje y patrimonio</option>
+                        <option value="Subdirección inmobiliaria">Subdirección inmobiliaria</option>
                         </select>
                       </div>
 
@@ -107,7 +107,7 @@
                       </div>
                       <div class="col-md-6">
                       <label class="form-label">Tipo de permiso:</label>
-                        <select class="form-control" name="permiso_unidad">
+                        <select class="form-control" name="permiso_unidad" required>
                         <option selected disabled value="">{{ $solicitud->permiso_unidad}}</option>
                         <option value="Lector">Lector</option>
                         <option value="Comentador">Comentador</option>
@@ -119,18 +119,22 @@
                             <label class="form-label">Objeto del contrato</label>
                             <input class="form-control" name="objeto_contrato" value="{{ $solicitud->objeto_contrato}}"></input>
                       </div>
+                      <div class="col-md-6">
+                            <label class="form-label">Observación</label>
+                            <input class="form-control" name="observacion" value="{{ $solicitud->observacion}}"></input>
+                      </div>
                       <div class="col-md-6 pb-2">
                             <label class="form-label">Estado</label>
-                            <select class="form-control" name="estado">
+                            <select class="form-control" name="estado" required>
                                 <option selected disabled value="">{{ $solicitud->estado}}</option>
                                 <option value="Recibido">Recibido</option>
-                                <option value="Comentador">En proceso</option>
-                                <option value="Colaborador">Finalizado</option>
-                                <option value="Gestor">Gestor de contenido (Añadir, editar, mover y eliminar archivos)</option>
+                                <option value="En proceso">En proceso</option>
+                                <option value="Finalizado">Finalizado</option>
                             </select>
                       </div>
-
-                      <button type="submit" class="btn btn-primary justify-content-md-end mt-2" style="background-color:#b3348a; border-color:#b3348a;">Actualizar registro</button>
+                      <div class="col-md-12 pt-2" align="center">
+                        <button type="submit" class="btn-get-principal">Enviar solicitud</button>
+                      </div>
                   </form>
                 </div>
               </div>

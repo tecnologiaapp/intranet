@@ -34,7 +34,9 @@
             <div class="box">
               <span>Appyudas virtuales</span>
               <div align="center">
+                <a href="{{ route('user.soporte.virtual.index')}}">
                     <img src="https://cdn-icons-png.flaticon.com/512/3246/3246823.png"  width="200px;" height="200px;">
+                </a>
               </div>
               <h4 >Accede y encuentra toda la información necesaria para hacer mas agil tu proceso: manuales, capacitaciones, instructivos.</h4>
               

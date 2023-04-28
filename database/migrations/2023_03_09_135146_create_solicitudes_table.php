@@ -32,7 +32,9 @@ class CreateSolicitudesTable extends Migration
             $table->string('unidad')->nullable();
             $table->string('permiso_unidad')->nullable();
             $table->string('objeto_contrato');
-            $table->enum('estado', ['recibido', 'en proceso', 'finalizado'])->default('recibido');
+            $table->string('observacion')->nullable()->default('N/A');
+            $table->enum('estado', ['Recibido', 'En proceso', 'Finalizado'])->default('Recibido');
+            $table->integer('contador')->default(0);
             $table->timestamps();
         });
     }

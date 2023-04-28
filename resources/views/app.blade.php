@@ -14,7 +14,7 @@
       <link rel="stylesheet" type="text/css" href="{{ asset('css/all.min.css')}}" />
       <link rel="stylesheet" type="text/css" href="{{ asset('css/slick.css')}}" />
       <link rel="stylesheet" type="text/css" href="{{ asset('css/slick-theme.css')}}" />
-      <link rel="stylesheet" type="text/css" href="{{ asset('css/styx.css')}}" />
+      <link rel="stylesheet" type="text/css" href="{{ asset('css/stylo.css')}}" />
       <link rel="stylesheet" type="text/css" href="{{ asset('css/responsiv.css')}}" />
       <link rel="stylesheet" type="text/css" href="{{ asset('css/cust.css')}}" />
       <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/cust.css')}}" />
@@ -54,7 +54,7 @@
     height: 100px;  padding-left: 25px;"></a></h2>
                   </div>
                   <!--logo end-->
-                  <nav>
+                  <nav class="navbar">
                      <ul>
                         <li><a href="{{ route('index') }}" title="">Inicio</a></li>
                       

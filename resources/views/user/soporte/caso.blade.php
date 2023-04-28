@@ -35,7 +35,9 @@
             <div class="box">
               <span>Soporte tecnico</span>
               <div align="center">
+              <a href="{{ route('user.soporte.tecnico.create')}}">
                   <img src="https://cdn-icons-png.flaticon.com/512/2345/2345581.png" width="200px;" height="200px;">
+              </a>
               </div>
               <h4>Reporta una falla con tu equipo de computo o solicita algun elemento como teclado, mouse, monitor, base refrigerante. </h4>
         
@@ -46,7 +48,9 @@
             <div class="box">
               <span>Configuración</span>
               <div align="center">
+                <a href="{{ route('user.soporte.configuracion.create')}}">
                   <img src="https://cdn-icons-png.flaticon.com/512/5106/5106024.png" width="200px;" height="200px;">
+                </a>
               </div>
               <h4>Solicita el acompañamiento o la instalación y configuración de alguna herramienta de Software como Office, AutoCad, Project.</h4>
         

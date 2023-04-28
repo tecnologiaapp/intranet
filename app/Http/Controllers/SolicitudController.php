@@ -5,21 +5,41 @@ namespace App\Http\Controllers;
 use App\Models\solicitud;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Mail\ContactMail;
+use Mail;
 
 class SolicitudController extends Controller
-{
+{ 
+
     public function index(Request $request)
-    {
-        $busqueda = $request->busqueda;
-        $solicitud = solicitud::where('cedula_usuario','LIKE','%'.$busqueda.'%')
-                      ->orWhere('nombres_usuario','LIKE','%'.$busqueda.'%')
-                    //   ->latest('id')
+    {   
+        $contador = optional(DB::table('solicitudes')->select('contador')->first())->contador ?? 0;
+        $texto = trim($request->get('texto'));
+        $solicitud = solicitud::where('cedula_usuario','LIKE','%'.$texto.'%')
+                      ->orWhere('nombres_usuario','LIKE','%'.$texto.'%')
+                      ->orderBy('id', 'desc')
                       ->paginate(8);
+
         $data = [
+            'contador' =>$contador,
             'solicitud' =>$solicitud,
-            'busqueda' =>$busqueda,
+            'texto' =>$texto,
         ];
         return view('user.soporte.solicitud.index',$data);
+    }
+
+    public function user(Request $request)
+    {
+        $texto = trim($request->get('texto'));
+        $solicitud = solicitud::where('cedula_usuario','LIKE','%'.$texto.'%')
+                      ->orWhere('nombres_usuario','LIKE','%'.$texto.'%')
+                    //   ->latest('id')
+                      ->paginate(3);
+        $data = [
+            'solicitud' =>$solicitud,
+            'texto' =>$texto,
+        ];
+        return view('user.soporte.solicitud.user',$data);
     }
 
     public function create()
@@ -47,7 +67,20 @@ class SolicitudController extends Controller
         $solicitud->permiso_unidad = $request->permiso_unidad;
         $solicitud->objeto_contrato = $request->objeto_contrato;
         $solicitud->save();
-        return redirect()->route('user.soporte.solicitud.index');
+        $contador = optional(DB::table('solicitudes')->select('contador')->first())->contador ?? 0;
+        $contador++;
+    
+        DB::table('solicitudes')->update(['contador' => $contador]);
+        $details = [
+            'tipo' => 'Correo Electrónico',
+            'cedula' => $request->cedula_usuario,
+            'nombre' => $request->nombre_usuario,
+            'apellido' => $request->apellido_usuario,
+            'correo' => $request->correo_usuario
+        ];
+
+        Mail::to('alexisbrayan039@gmail.com')->send(new ContactMail($details));
+        return redirect()->route('user.soporte.solicitud.create')->with('success', 'La solicitud se ha registrado correctamente, puede consultar el estado digitando su numero de cedula');
     }
 
     public function edit(string $id)
@@ -62,10 +95,10 @@ class SolicitudController extends Controller
     public function update(Request $request, string $id)
     {
         $solicitud = solicitud::find($id);
-        $solicitud->nombres_solicitante = $request->nombre_solicitante;
-        $solicitud->apellidos_solicitante = $request->apellido_solicitante;
-        $solicitud->correo_solicitante = $request->correo_solicitante;
-        $solicitud->subdirección_solicitante = $request->subdireccion_solicitante;  
+        // $solicitud->nombres_solicitante = $request->nombre_solicitante;
+        // $solicitud->apellidos_solicitante = $request->apellido_solicitante;
+        // $solicitud->correo_solicitante = $request->correo_solicitante;
+        // $solicitud->subdirección_solicitante = $request->subdireccion_solicitante;  
         $solicitud->cedula_usuario = $request->cedula_usuario;
         $solicitud->nombres_usuario = $request->nombre_usuario;
         $solicitud->apellidos_usuario = $request->apellido_usuario;
@@ -78,6 +111,8 @@ class SolicitudController extends Controller
         $solicitud->unidad = $request->unidad;
         $solicitud->permiso_unidad = $request->permiso_unidad;
         $solicitud->objeto_contrato = $request->objeto_contrato;
+        $solicitud->observacion = $request->observacion;
+        $solicitud->estado = $request->estado;
         $solicitud->save();
         return redirect()->route('user.soporte.solicitud.index');
     }

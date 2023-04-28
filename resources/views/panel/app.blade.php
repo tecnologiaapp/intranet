@@ -67,6 +67,7 @@
                                  <span class="nk-menu-text">Certificados tributarios</span>
                               </a>
                            </li>
+                           
                            <!-- <li class="nk-menu-item has-sub">
                               <a href="{{ route('user.archivo.thesis') }}" class="nk-menu-link">
                                  <span class="nk-menu-icon"><i class="lni lni-dashboard"></i></span>
@@ -89,8 +90,33 @@
                               </ul>
                               <!-- .nk-menu-sub -->
                            </li>
-
-                          
+                           <li class="nk-menu-heading">
+                              <h6 class="overline-title text-primary-alt">Mesa de Ayuda</h6>
+                           </li>
+                           <li class="nk-menu-item has-sub">
+                              <a href="{{ route('user.soporte.solicitud.index') }}" class="nk-menu-link">
+                                 <span class="nk-menu-icon"><i class="lni lni-library"></i></span>
+                                 <span class="nk-menu-text">Correo electrónico</span>
+                              </a>
+                           </li>
+                           <li class="nk-menu-item has-sub">
+                              <a href="{{ route('user.soporte.drive.index') }}" class="nk-menu-link">
+                                 <span class="nk-menu-icon"><i class="lni lni-library"></i></span>
+                                 <span class="nk-menu-text">Acceso Drive</span>
+                              </a>
+                           </li>
+                           <li class="nk-menu-item has-sub">
+                              <a href="{{ route('user.soporte.tecnico.index') }}" class="nk-menu-link">
+                                 <span class="nk-menu-icon"><i class="lni lni-library"></i></span>
+                                 <span class="nk-menu-text">Soporte técnico</span>
+                              </a>
+                           </li>
+                           <li class="nk-menu-item has-sub">
+                              <a href="{{ route('user.soporte.configuracion.index') }}" class="nk-menu-link">
+                                 <span class="nk-menu-icon"><i class="lni lni-library"></i></span>
+                                 <span class="nk-menu-text">Configuración</span>
+                              </a>
+                           </li>
                            @endrole
 
                            <!-- .nk-menu-item -->

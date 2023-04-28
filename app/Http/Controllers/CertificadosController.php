@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Certificados;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use \setasign\Fpdi\Tcpdf\Fpdi;
 
 class CertificadosController extends Controller
 {
@@ -12,8 +13,7 @@ class CertificadosController extends Controller
     {   
         $busqueda = $request->busqueda;
         $certificados = Certificados::where('documento','LIKE','%'.$busqueda.'%')
-                      ->orWhere('nombre','LIKE','%'.$busqueda.'%')
-                    //   ->latest('id')
+                      ->orderBy('id', 'desc')
                       ->paginate(8);
         $data = [
             'certificados' =>$certificados,
@@ -26,11 +26,11 @@ class CertificadosController extends Controller
     {   
         $texto = trim($request->get('texto'));
         $archivos=DB::table('certificados')
-                    ->select('id','nombre','apellido','documento','correo','pdf')
+                    ->select('id','documento','razon_social','pdf')
                     ->where('documento', '=', $texto )
                     // ->orWhere('nombre','LIKE','%'.$texto.'%')
-                    ->orderBy('nombre','asc')
-                    ->paginate(10);
+                    // ->orderBy('documento','asc')
+                    ->paginate(8);
         // $certificados = Certificados::where('documento','LIKE','%'.$texto.'%')
         //               ->orWhere('nombre','LIKE','%'.$texto.'%');
         // $data = [
@@ -50,10 +50,8 @@ class CertificadosController extends Controller
     public function store(Request $request)
     {   
         $certificado = new Certificados();
-        $certificado->nombre = $request->nombre;
-        $certificado->apellido = $request->apellido;
         $certificado->documento = $request->cedula;
-        $certificado->correo = $request->correo;
+        $certificado->razon_social = $request->razon;
         if($request->hasFile('pdf')){
             $archivo =$request->file('pdf');
             $archivo->move(public_path().'/Archivos/',$archivo->getClientOriginalName());
@@ -87,10 +85,8 @@ class CertificadosController extends Controller
     public function update(Request $request, string $id)
     {
         $certificado = Certificados::find($id);
-        $certificado->nombre = $request->nombre;
-        $certificado->apellido = $request->apellido;
         $certificado->documento = $request->cedula;
-        $certificado->correo = $request->correo;
+        $certificado->razon_social = $request->razon;
         if($request->hasFile('pdf')){
             $archivo =$request->file('pdf');
             $archivo->move(public_path().'/Archivos/',$archivo->getClientOriginalName());

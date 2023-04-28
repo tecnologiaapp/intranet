@@ -17,13 +17,13 @@
 <div class="card-header">
     <div class="row" style="justify-content: space-between;">
    
-        <a href="{{ route('user.certificados.create') }}" class="btn btn-primary">Añadir certificado</a>
+        <a href="{{ route('user.certificados.create') }}" class="btn-get-principal">Añadir certificado</a>
         <div class="d-md-flex justify-content-md-end">
         
             <form action="{{ route('user.certificados.index') }}" method="GET">
                 <div class="btn-group">
-                    <input type="text" name="busqueda" class="form-control">
-                    <input type="submit" value="enviar" class="btn btn-primary">
+                    <input type="text" name="busqueda" class="form-control" placeholder="Cedula o Nit">
+                    <input type="submit" value="Buscar" class="btn btn-primary">
                 </div>
             </form>
 
@@ -34,28 +34,30 @@
 <table class="table">
 <thead>
     <th>id</th>
-    <th>Nombres</th>
-    <th>Apellidos</th>
     <th>Documento</th>
-    <th>Correo</th>
+    <th>Razon social</th>
     <th>Opciones</th>
 </thead>
 <tbody>
     @foreach($certificados as $certificado)
     <tr>
         <td>{{$certificado->id}}</td>
-        <td>{{$certificado->nombre}}</td>
-        <td>{{$certificado->apellido}}</td>
         <td>{{$certificado->documento}}</td>
-        <td>{{$certificado->correo}}</td>
+        <td>
+        @if($certificado->razon_social)
+                {{$certificado->razon_social}}
+            @else
+                N/A
+            @endif
+        </td>
         <td class="btn-group">
-            <a class="btn btn-danger" href="Archivos/{{$certificado->pdf}}" target="_blank">Ver Documento</a>
-            <a href="{{ route('user.certificados.edit', $certificado->id) }}" class="btn btn-primary">Editar</a>
-            <form action="{{ route('user.certificados.destroy', $certificado->id) }}" method="POST">
+            <a class="btn-get-principal" href="Archivos/{{$certificado->pdf}}" target="_blank">Ver Documento</a>
+            <a href="{{ route('user.certificados.edit', $certificado->id) }}" class="btn-get-blue">Editar</a>
+            <!-- <form action="{{ route('user.certificados.destroy', $certificado->id) }}" method="POST">
                 @method('DELETE')
                 @csrf
-                <input type="submit" value="Eliminar" class="btn btn-warning">
-            </form>
+                <input type="submit" value="Eliminar" class="btn-get-red">
+            </form> -->
         </td>
     </tr>
     @endforeach

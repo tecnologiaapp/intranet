@@ -35,7 +35,9 @@
             <div class="box">
               <span>Acceso Drive</span>
               <div align="center">
+              <a href="{{ route('user.soporte.drive.create')}}">
                 <img src="https://cdn-icons-png.flaticon.com/512/2111/2111390.png" width="200px;" height="200px;">
+              </a>
               </div>
               <h4>Realiza la solicitud para concederte permisos de acceso a alguna carpeta de la entidad, especificando el tipo de permiso.</h4>
         

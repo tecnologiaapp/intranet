@@ -18,7 +18,7 @@
               <div class="card">
                 <div class="card-header">
                     <div>
-                    <a href="{{ route('user.certificados.index') }}" class="btn btn-primary">Listado de documentos</a>
+                    <a href="{{ route('user.certificados.index') }}" class="btn-get-principal">Listado de documentos</a>
                     </div>
                 </div>
                 <div class="card-body">
@@ -27,27 +27,26 @@
                 @method('PUT')
 
                       <div class="col-md-6">
-                      <label class="form-label">Nombres</label>
-                      <input type="text" class="form-control" name="nombre" value="{{$certificados->nombre}}">
-                      </div>
-                      <div class="col-md-6">
-                      <label class="form-label">Apellidos</label>
-                      <input type="text" class="form-control" name="apellido" value="{{$certificados->apellido}}">
-                      </div>
-                      <div class="col-md-6">
                         <label  class="form-label">Documento de identidad</label>
-                        <input type="numbers" class="form-control" name="cedula" value="{{$certificados->documento}}">
+                        <input type="numbers" class="form-control" name="cedula" value="{{$certificados->documento}}" required>
                       </div>
                       <div class="col-md-6">
-                            <label class="form-label">Correo electronico</label>
-                            <input type="text" class="form-control" name="correo" value="{{$certificados->correo}}">
+                            <label class="form-label">Razón social</label>
+                            @if($certificados->razon_social)
+                            <input type="text" class="form-control" name="razon" value="{{$certificados->razon_social}}" required>
+                            @else
+                            <input type="text" class="form-control" name="razon" value="N/A" required>
+                            @endif
+                            
                       </div>
                       <div class="col-md-6">
                             <label  class="form-label">Adjuntar certificado</label>
-                            <input type="file" class="form-control-file" name="pdf" value="{{$certificados->pdf}}">
+                            <input type="file" class="form-control" name="pdf" value="{{ asset('Archivos/' . $certificados->pdf) }}">
                       </div>
 
-                      <button type="submit" class="btn btn-primary justify-content-md-end mt-2" style="background-color:#b3348a; border-color:#b3348a;">Actualizar registro</button>
+                      <div class="col-md-12 pt-2" align="center">
+                        <button type="submit" class="btn-get-principal">Guardar registro</button>
+                      </div>
                   </form>
                 </div>
               </div>

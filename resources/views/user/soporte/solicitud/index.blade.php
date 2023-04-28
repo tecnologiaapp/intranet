@@ -1,9 +1,6 @@
 @extends('app')
 
 @section('content')
-<head>
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
-</head>
 <section class="work-together-sec" style="padding-top: 156px; padding-bottom: 15px;">
    <div class="container">
       <div class="wrk-tgt text-center wow fadeInUp" data-wow-duration="1000ms" style="visibility: visible; animation-duration: 1000ms; animation-name: fadeInUp;">
@@ -23,12 +20,18 @@
         
             <form action="{{ route('user.soporte.solicitud.index') }}" method="GET">
                 <div class="btn-group">
-                    <input type="text" name="busqueda" class="form-control">
-                    <input type="submit" value="enviar" class="btn btn-primary">
+                    <input type="text" id="texto" name="texto" class="form-control" value="{{$texto}}" placeholder="Cedula o Nombre">
+                    <input type="submit" value="Buscar" class="btn btn-primary">
                 </div>
             </form>
 
         </div>
+
+        @if($contador)
+            <span>El total de casos registrados es: {{$contador}}</span>
+        @else
+            <span>No hay registros</span>
+        @endif
          
     </div>
 </div>
@@ -63,6 +66,7 @@
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unidad de almacenamiento</th> 
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Permiso de unidad</th> 
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Objeto del contrato</th> 
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Observación</th> 
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Estado</th>                   
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Opciones</th>
                       <th class="text-secondary opacity-7"></th>
@@ -189,6 +193,13 @@
                             <p class="text-xs font-weight-bold mb-0">{{$sol->objeto_contrato}}</p>                          
                           </div>
                         </div>
+                      </td>
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div class="d-flex flex-column justify-content-center">
+                            <p class="text-xs font-weight-bold mb-0">{{$sol->observacion}}</p>                          
+                          </div>
+                        </div>
                       </td> 
                       <td>
                         <div class="d-flex px-2 py-1">
@@ -198,11 +209,11 @@
                         </div>
                       </td>                 
                       <td class="btn-group">
-                          <a href="{{ route('user.soporte.solicitud.edit', $sol->id) }}" class="btn btn-primary">Editar</a>
+                          <a href="{{ route('user.soporte.solicitud.edit', $sol->id) }}" class="btn-get-blue">Editar</a>
                           <form action="{{ route('user.soporte.solicitud.destroy', $sol->id) }}" method="POST">
                               @method('DELETE')
                               @csrf
-                              <input type="submit" value="Eliminar" class="btn btn-warning">
+                              <input type="submit" value="Eliminar" class="btn-get-red">
                           </form>
                       </td>
             
@@ -212,7 +223,7 @@
                   </tbody>
                   <tfoot>
                       <tr>
-                          <td colspan="18"> {{$solicitud->appends(['busqueda'=>$busqueda])}} </td>
+                          <td colspan="18"> {{$solicitud->appends(['texto'=>$texto])}} </td>
                       </tr>
                   </tfoot>
                 </table>

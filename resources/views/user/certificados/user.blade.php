@@ -33,10 +33,8 @@
 <table class="table">
 <thead>
     <th>id</th>
-    <th>Nombres</th>
-    <th>Apellidos</th>
     <th>Documento</th>
-    <th>Correo</th>
+    <th>Nombre o razón social</th>  
     <th>Opciones</th>
 </thead>
 <tbody>
@@ -49,12 +47,10 @@
     @foreach($archivos as $archivo)
     <tr>
         <td>{{$archivo->id}}</td>
-        <td>{{$archivo->nombre}}</td>
-        <td>{{$archivo->apellido}}</td>
         <td>{{$archivo->documento}}</td>
-        <td>{{$archivo->correo}}</td>
+        <td>{{$archivo->razon_social}}</td>
         <td class="btn-group">
-            <a class="btn btn-danger" href="Archivos/{{$archivo->pdf}}" target="_blank">Ver Documento</a>
+            <a class="btn-get-blue" href="Archivos/{{$archivo->pdf}}" target="_blank">Ver Documento</a>
         </td>
     </tr>
   @endforeach
